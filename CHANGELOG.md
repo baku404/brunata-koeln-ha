@@ -1,8 +1,11 @@
 # Changelog
 
-## [Unreleased]
+## [1.0.1] - 2026-10-18
 
 - Replace the enlarged 16-pixel favicon with a high-resolution symbol adaptation and add the full portal logo for Home Assistant branding, with source attribution and separate third-party rights notices.
+
+- Include all four branding PNGs in the release ZIP and display the full logo in the repository README.
+- Update repository ownership links to baku404 and make HACS custom-repository installation the primary path.
 
 ## [1.0.0] - 2026-10-18
 

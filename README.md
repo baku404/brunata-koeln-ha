@@ -4,7 +4,7 @@
 
 Independent community integration for the [Cologne tenant portal](https://online.brunata-koeln.de/legacy/login). Not affiliated with BRUNATA-METRONA or Home Assistant.
 
-**Version 1.0.0.** Heating is live-verified on Home Assistant Core 2026.10.2 / Python 3.14.6. The maintainer test instance was last verified on 0.1.0.dev4. Review the [verification record and known gaps](docs/VERIFICATION.md).
+**Version 1.0.1.** Heating is live-verified on Home Assistant Core 2026.10.2 / Python 3.14.6. The maintainer test instance was last verified on 0.1.0.dev4. Review the [verification record and known gaps](docs/VERIFICATION.md).
 
 ## Sensors
 
@@ -95,7 +95,7 @@ Use Python 3.14 for target HA work; standalone tests also run on Python 3.12.
 ```sh
 python -m pip install -r requirements-dev.txt
 python -m unittest discover -s tests -t . -v
-python scripts/validate.py --release-tag v1.0.0
+python scripts/validate.py --release-tag v1.0.1
 python -m ruff check .
 python -m ruff format --check .
 python scripts/package.py
