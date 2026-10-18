@@ -18,7 +18,7 @@ The 1.0.0 preparation additionally fixes forecast-only initial entity creation a
 - User observation over multiple days and live actual-publication replacement; revision/replacement currently has offline coverage.
 - Live session expiry, rejected credentials, reauthentication, outage recovery and deliberate unload/session-cleanup checks.
 - Full automated tests against the real HA config-flow/coordinator/entity lifecycle. Current interface doubles are not full HA runtime tests.
-- Public repository `mailskurz-bit/brunata-koeln-ha` is confirmed. CI, hassfest and HACS passed on commit 808e84d; see GitHub Actions for checks on later commits.
+- Public repository `baku404/brunata-koeln-ha` is confirmed. CI, hassfest and HACS passed on commit 808e84d; see GitHub Actions for checks on later commits.
 - Establish supported HA version range beyond the single tested target.
 
 ## Known limitations

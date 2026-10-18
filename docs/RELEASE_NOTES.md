@@ -22,8 +22,8 @@ Full HA automated config-flow/lifecycle tests, extended observation and live for
 
 ## Installation and upgrade
 
-**Recommended: HACS custom repository.** Open HACS → three-dot menu → Custom repositories, paste `https://github.com/mailskurz-bit/brunata-koeln-ha`, select **Integration** and add it. Download **BRUNATA-METRONA Cologne**, restart Home Assistant, then add the integration under **Settings → Devices & services** and enter your portal credentials.
+**Recommended: HACS custom repository.** Open HACS → three-dot menu → Custom repositories, paste `https://github.com/baku404/brunata-koeln-ha`, select **Integration** and add it. Download **BRUNATA-METRONA Cologne**, restart Home Assistant, then add the integration under **Settings → Devices & services** and enter your portal credentials.
 
 Future updates are available through HACS. Existing manual/development entries retain their entity/statistic identities and credentials; download through HACS over the existing files and keep the configured integration entry. Take a backup before upgrading.
 
-Manual ZIP installation is a fallback only. See the [step-by-step installation guide](https://github.com/mailskurz-bit/brunata-koeln-ha#installation) and the verification record for limitations.
+Manual ZIP installation is a fallback only. See the [step-by-step installation guide](https://github.com/baku404/brunata-koeln-ha#installation) and the verification record for limitations.

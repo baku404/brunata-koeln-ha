@@ -50,7 +50,7 @@ Prerequisite: [HACS is installed and configured](https://www.hacs.xyz/docs/use/)
 3. Paste this repository URL:
 
    ```text
-   https://github.com/mailskurz-bit/brunata-koeln-ha
+   https://github.com/baku404/brunata-koeln-ha
    ```
 
 4. Select **Integration** as the type and click **Add**.
@@ -71,7 +71,7 @@ Compare the source month/value with the portal after setup. Removing an entry do
 
 Use this method only if HACS is unavailable.
 
-1. Download `brunata_koeln.zip` from the [latest release](https://github.com/mailskurz-bit/brunata-koeln-ha/releases/latest).
+1. Download `brunata_koeln.zip` from the [latest release](https://github.com/baku404/brunata-koeln-ha/releases/latest).
 2. Create `config/custom_components/brunata_koeln/` in your Home Assistant configuration directory.
 3. Extract the ZIP contents directly into that folder. `manifest.json` must be at `config/custom_components/brunata_koeln/manifest.json`, without an extra nested directory.
 4. Restart Home Assistant, then complete steps 7–8 of the HACS instructions above.
