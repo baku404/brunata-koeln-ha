@@ -1,5 +1,9 @@
 # Changelog
 
+## [Unreleased]
+
+- Use the original Cologne portal favicon for integration branding, with source attribution and an explicit third-party license exception.
+
 ## [1.0.0] - 2026-10-18
 
 Initial public release. See docs/VERIFICATION.md for verified scope and known limitations.
