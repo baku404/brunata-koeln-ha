@@ -19,6 +19,8 @@ RELEASE_FILES = (
     "sensor.py",
     "diagnostics.py",
     "manifest.json",
+    "brand/icon.png",
+    "brand/icon@2x.png",
     "strings.json",
     "translations/en.json",
 )
