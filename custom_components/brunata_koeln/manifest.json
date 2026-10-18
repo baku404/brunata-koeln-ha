@@ -1,0 +1,17 @@
+{
+  "domain": "brunata_koeln",
+  "name": "BRUNATA-METRONA Cologne",
+  "codeowners": [
+    "@mailskurz-bit"
+  ],
+  "config_flow": true,
+  "dependencies": [
+    "recorder"
+  ],
+  "documentation": "https://github.com/mailskurz-bit/brunata-koeln-ha",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/mailskurz-bit/brunata-koeln-ha/issues",
+  "requirements": [],
+  "version": "1.0.0"
+}

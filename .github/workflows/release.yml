@@ -1,0 +1,40 @@
+name: Draft release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python -m ruff check .
+      - run: python -m ruff format --check .
+      - run: python -m unittest discover -s tests -t . -v
+      - run: python scripts/validate.py --release-tag "$RELEASE_TAG"
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+      - run: python scripts/package.py
+      - uses: home-assistant/actions/hassfest@master
+      - name: Create draft release
+        shell: bash
+        run: |
+          flags=()
+          if [[ "$RELEASE_TAG" =~ (a|b|rc|dev)[0-9]+$ ]]; then
+            flags+=(--prerelease)
+          fi
+          gh release create "$RELEASE_TAG" dist/brunata_koeln.zip --draft "${flags[@]}" --verify-tag --title "$RELEASE_TAG" --notes-file docs/RELEASE_NOTES.md
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}

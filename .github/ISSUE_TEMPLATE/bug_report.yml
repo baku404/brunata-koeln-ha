@@ -1,0 +1,31 @@
+name: Bug report
+description: Report a reproducible problem without sharing private account data.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is an experimental Cologne integration. Include the integration and HA versions, affected medium and a reproducible description.
+        Never attach credentials, tokens, cookies, raw HAR files or unredacted logs.
+  - type: input
+    id: version
+    attributes:
+      label: Integration and Home Assistant versions
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Sanitized diagnostics
+      description: Remove account identifiers and all authentication data.

@@ -1,0 +1,4 @@
+ruff==0.17.1
+aiohttp>=3.11,<4
+tzdata
+trustme==1.2.1

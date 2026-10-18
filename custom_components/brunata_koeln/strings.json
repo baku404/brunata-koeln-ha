@@ -1,0 +1,31 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to BRUNATA-METRONA Cologne",
+        "description": "Reads the latest actual past-month consumption for the portal's selected tenancy. Only media advertised by your account are available. Credentials are stored in Home Assistant's configuration.",
+        "data": {
+          "username": "Username or email",
+          "password": "Password"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Reconnect to the Cologne portal",
+        "data": {
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "The portal rejected the credentials.",
+      "captcha_required": "The portal requires interactive authentication. Sign in on the portal and resolve any challenge before trying again.",
+      "cannot_connect": "The portal is temporarily unreachable. Try again later.",
+      "no_supported_data": "No supported consumption media were advertised for this account.",
+      "portal_changed": "The portal response has changed or contains unsupported data."
+    },
+    "abort": {
+      "already_configured": "This account is already configured.",
+      "reauth_successful": "Authentication was updated."
+    }
+  }
+}

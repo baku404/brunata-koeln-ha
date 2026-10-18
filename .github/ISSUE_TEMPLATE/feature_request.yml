@@ -1,0 +1,14 @@
+name: Feature request
+description: Suggest a capability or report a portal data requirement.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and proposed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: data
+    attributes:
+      label: Relevant medium, unit and period
+      description: Describe the data without personal information or credentials.
