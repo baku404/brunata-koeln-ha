@@ -108,3 +108,7 @@ Fixtures are synthetic. Local real-HTTPS tests use a test CA and never portal cr
 The legacy backend requires browser-style cookie transmission and tenant context initialization; a redirect or cookie count alone does not prove authentication. Rejected credentials/interactive challenges stop login retries; temporary outages follow HA's normal update retry behavior.
 
 See [architecture](docs/ARCHITECTURE.md), [transport contract](docs/TRANSPORT_CONTRACT.md), [verification](docs/VERIFICATION.md), [release process](docs/RELEASING.md), [contributing](CONTRIBUTING.md) and [security](SECURITY.md). MIT license: [LICENSE](LICENSE).
+
+### Branding license
+
+The MIT license applies to project code. The original BRUNATA-METRONA portal brand assets are excluded; see [brand provenance and rights](custom_components/brunata_koeln/brand/README.md). Their inclusion identifies compatibility, not affiliation or endorsement.
