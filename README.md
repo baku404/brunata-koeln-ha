@@ -1,5 +1,7 @@
 # BRUNATA-METRONA Cologne for Home Assistant
 
+![BRUNATA-METRONA](custom_components/brunata_koeln/brand/logo@2x.png)
+
 Independent community integration for the [Cologne tenant portal](https://online.brunata-koeln.de/legacy/login). Not affiliated with BRUNATA-METRONA or Home Assistant.
 
 **Version 1.0.0.** Heating is live-verified on Home Assistant Core 2026.10.2 / Python 3.14.6. The maintainer test instance was last verified on 0.1.0.dev4. Review the [verification record and known gaps](docs/VERIFICATION.md).

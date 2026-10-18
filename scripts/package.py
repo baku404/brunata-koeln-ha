@@ -21,6 +21,8 @@ RELEASE_FILES = (
     "manifest.json",
     "brand/icon.png",
     "brand/icon@2x.png",
+    "brand/logo.png",
+    "brand/logo@2x.png",
     "brand/README.md",
     "brand/portal-favicon.ico",
     "strings.json",

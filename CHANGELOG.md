@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-- Use the original Cologne portal favicon for integration branding, with source attribution and an explicit third-party license exception.
+- Replace the enlarged 16-pixel favicon with a high-resolution symbol adaptation and add the full portal logo for Home Assistant branding, with source attribution and separate third-party rights notices.
 
 ## [1.0.0] - 2026-10-18
 
