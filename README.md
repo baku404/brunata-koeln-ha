@@ -41,11 +41,40 @@ Use one own-consumption statistic in the Energy dashboard, not both monthly and 
 
 ## Installation
 
-Manual: copy `custom_components/brunata_koeln` into HA's `config/custom_components/` and restart. Add **BRUNATA-METRONA Cologne** in **Settings → Devices & services**. Enter credentials only in HA's setup form; they are stored in its config entry. Protect configuration and backups.
+### HACS (recommended)
 
-Add `mailskurz-bit/brunata-koeln-ha` as a HACS custom repository of type Integration, then install and restart. The release provides a HACS-compatible integration ZIP. See the GitHub Actions results for the current validation status.
+Prerequisite: [HACS is installed and configured](https://www.hacs.xyz/docs/use/).
 
-Before upgrades, take a backup. Existing development entity/statistic IDs are preserved; no credential migration or integration removal is required. Compare the source month/value with the portal after setup. Removing an entry does not delete its imported statistics.
+1. Open **HACS** in Home Assistant.
+2. Open the **three-dot menu** in the upper-right corner and choose **Custom repositories**.
+3. Paste this repository URL:
+
+   ```text
+   https://github.com/mailskurz-bit/brunata-koeln-ha
+   ```
+
+4. Select **Integration** as the type and click **Add**.
+5. Find **BRUNATA-METRONA Cologne** in HACS, open it and select **Download**. Choose the latest release and confirm the download.
+6. **Restart Home Assistant**.
+7. Go to **Settings → Devices & services → Add integration** and search for **BRUNATA-METRONA Cologne**.
+8. Enter your Cologne portal username/email and password, then submit the form.
+
+HACS installs the files and offers future release updates. The Devices & services step connects your portal account. Enter credentials only in Home Assistant; they are stored in its config entry. Protect configuration and backups.
+
+### Updates and existing manual installations
+
+Install future updates through **HACS**, then restart Home Assistant. Take a backup before upgrading. If you previously copied the integration manually, add the same repository to HACS and download it over the existing installation. Keep the existing Devices & services entry: entity/statistic IDs and credentials are preserved; there is no need to remove or recreate the integration.
+
+Compare the source month/value with the portal after setup. Removing an entry does not delete its imported statistics.
+
+### Manual installation (fallback only)
+
+Use this method only if HACS is unavailable.
+
+1. Download `brunata_koeln.zip` from the [latest release](https://github.com/mailskurz-bit/brunata-koeln-ha/releases/latest).
+2. Create `config/custom_components/brunata_koeln/` in your Home Assistant configuration directory.
+3. Extract the ZIP contents directly into that folder. `manifest.json` must be at `config/custom_components/brunata_koeln/manifest.json`, without an extra nested directory.
+4. Restart Home Assistant, then complete steps 7–8 of the HACS instructions above.
 
 ## Limitations
 
