@@ -1,6 +1,6 @@
 # Version 1.0.0 release preparation
 
-The local manifest is prepared as `1.0.0`. It is not a published or automatically approved stable release. The live HA instance remains on the previously deployed development build until explicitly updated.
+Version `1.0.0` is the initial public release, authorized by the maintainer on 2026-10-18. The live maintainer HA instance remains on the previously deployed development build until explicitly updated.
 
 ## Approval gate
 

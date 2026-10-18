@@ -70,7 +70,7 @@ python -m ruff format --check .
 python scripts/package.py
 ```
 
-Fixtures are synthetic. Local real-HTTPS tests use a test CA and never portal credentials. Interface doubles verify entity/recorder orchestration but are not a full HA test harness. CI includes official hassfest and HACS validation; their pending remote execution is not a completed local check.
+Fixtures are synthetic. Local real-HTTPS tests use a test CA and never portal credentials. Interface doubles verify entity/recorder orchestration but are not a full HA test harness. CI includes official hassfest and HACS validation; their successful GitHub execution is reported under the repository Actions tab.
 
 ## Troubleshooting and security
 
