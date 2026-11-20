@@ -25,6 +25,9 @@ class MediumReadings:
     forecasts: tuple[MonthlyReading, ...] = ()
     property_forecasts: tuple[MonthlyReading, ...] = ()
 
+    # Actual months of the previous billing period, dated to their real months.
+    previous: tuple[MonthlyReading, ...] = ()
+
     @property
     def latest(self) -> MonthlyReading | None:
         """Return the most recent reported month."""

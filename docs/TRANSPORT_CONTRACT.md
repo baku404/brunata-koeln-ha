@@ -28,7 +28,9 @@ The selected series has:
 - `valueType` for the native unit
 - `data` points with epoch-millisecond `x`, numeric `y` and boolean `isHochrechnung`
 
-The chart medium must match the request. Ignore previous-period series and interpret dates in Europe/Berlin. Expose only explicit non-estimated past-month values. Ambiguous series, unknown units and conflicting duplicates fail closed. Missing data never become zero; interval readings never become cumulative totals.
+The chart medium must match the request. Interpret dates in Europe/Berlin. Expose only explicit non-estimated past-month values. Ambiguous series, unknown units and conflicting duplicates fail closed. Missing data never become zero; interval readings never become cumulative totals.
+
+The same chart also carries `name = "Vorheriger Abrechnungszeitraum"`. Its points use the selected period's timestamps (so both bars share a month) and have no `isHochrechnung` flag. Each point is moved to the same month one year earlier; points explicitly flagged as estimates are skipped, and the result is then validated like the selected series. The previous period is optional: when it is missing, ambiguous or malformed, the selected period is still returned and diagnostics report `previous_period_unavailable`.
 
 ## Evidence and limits
 

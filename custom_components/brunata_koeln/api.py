@@ -23,6 +23,7 @@ from .parser import (
     PortalHTML,
     discover_media,
     parse_monthly,
+    parse_previous,
     parse_property_average,
 )
 
@@ -417,6 +418,13 @@ class BrunataClient:
                     parse_monthly(source, medium),
                     forecasts=parse_monthly(source, medium, forecast=True).readings,
                 )
+                try:
+                    readings[medium] = replace(
+                        readings[medium], previous=parse_previous(source, medium)
+                    )
+                except PortalFormatError:
+                    # Keep actual consumption when the optional prior period fails.
+                    self._diagnostics["previous_period_unavailable"] = True
             if include_comparison:
                 comparison_path = "/legacy/Uvi/Nutzer/LiegenschaftCompare"
                 advertised = any(

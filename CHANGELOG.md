@@ -1,5 +1,9 @@
 # Changelog
 
+## [Unreleased]
+
+- Import the previous billing period from the monthly comparison chart into the own-consumption monthly and daily statistics, chaining its closing sum into the current year. The previous period is optional and never blocks current readings.
+
 ## [1.0.1] - 2026-10-18
 
 - Replace the enlarged 16-pixel favicon with a high-resolution symbol adaptation and add the full portal logo for Home Assistant branding, with source attribution and separate third-party rights notices.

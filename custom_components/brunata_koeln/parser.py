@@ -188,3 +188,72 @@ def parse_property_average(
         + "</script>"
     )
     return parse_monthly(synthetic, medium, as_of, forecast=forecast).readings
+
+
+def parse_previous(source: str, medium: str) -> tuple[MonthlyReading, ...]:
+    """Extract the previous billing period from the monthly comparison chart.
+
+    The portal plots "Vorheriger Abrechnungszeitraum" next to the selected
+    period, so its points carry the selected period's timestamps and no
+    estimate flag. Each point is moved to the same month one year earlier and
+    then validated exactly like the selected series. Points explicitly marked
+    as estimates are skipped; ambiguous or malformed series fail closed.
+    """
+    selected = []
+    for chart in PortalHTML(source).charts:
+        match = re.search(r'"mediumType"\s*:\s*"([^"\\]*)"', chart)
+        if match is None or match.group(1) != medium:
+            raise PortalFormatError("Previous period medium does not match")
+        for marker in re.finditer(r'"series"\s*:\s*(?=\[)', chart):
+            try:
+                series, _ = json.JSONDecoder().raw_decode(chart[marker.end() :])
+            except (ValueError, TypeError):
+                raise PortalFormatError("Invalid previous period series") from None
+            if not isinstance(series, list) or any(
+                not isinstance(x, dict) for x in series
+            ):
+                raise PortalFormatError("Invalid previous period series")
+            selected.extend(
+                x for x in series if x.get("name") == "Vorheriger Abrechnungszeitraum"
+            )
+    if len(selected) != 1:
+        raise PortalFormatError("Previous period is ambiguous or missing")
+    item = dict(selected[0])
+    points = item.get("data")
+    if not isinstance(points, list):
+        raise PortalFormatError("Previous period readings are missing")
+    shifted = []
+    for point in points:
+        if not isinstance(point, dict):
+            raise PortalFormatError("Invalid previous period reading")
+        if point.get("isHochrechnung") is True:
+            continue
+        timestamp = point.get("x")
+        if (
+            isinstance(timestamp, bool)
+            or not isinstance(timestamp, (float, int))
+            or not math.isfinite(timestamp)
+        ):
+            raise PortalFormatError("Invalid previous period reading")
+        try:
+            day = datetime.fromtimestamp(timestamp / 1000, BERLIN).date()
+        except (ValueError, OverflowError, OSError):
+            raise PortalFormatError("Invalid reading date") from None
+        if day.day != 1:
+            raise PortalFormatError("Reading is not a monthly boundary")
+        earlier = datetime(day.year - 1, day.month, 1, tzinfo=BERLIN)
+        shifted.append(
+            {
+                "x": int(earlier.timestamp() * 1000),
+                "y": point.get("y"),
+                "isHochrechnung": False,
+            }
+        )
+    item["data"] = shifted
+    item["name"] = "Ausgewählter Abrechnungszeitraum"
+    synthetic = (
+        '<script id="chart-data-previous">'
+        + json.dumps({"mediumType": medium, "series": [item]})
+        + "</script>"
+    )
+    return parse_monthly(synthetic, medium).readings

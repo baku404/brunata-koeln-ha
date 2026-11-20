@@ -9,7 +9,7 @@
 - `sensor.py`: dynamically discovered latest actual past-month sensors.
 - `diagnostics.py`: allowlisted operational counts and status.
 - `history.py`: deterministic monthly baselines and cumulative interval sums.
-- `statistics.py`: stable external statistic IDs, previous-year baseline lookup and daily reconciliation through Recorder APIs.
+- `statistics.py`: stable external statistic IDs, previous-period import with chained sums (stored-baseline lookup as fallback) and daily reconciliation through Recorder APIs.
 
 Malformed responses fail the shared update. Missing media become unavailable. Unit changes make existing entities unavailable rather than silently changing their history.
 

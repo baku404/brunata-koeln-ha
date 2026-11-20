@@ -24,7 +24,7 @@ The 1.0.0 preparation additionally fixes forecast-only initial entity creation a
 ## Known limitations
 
 - Water schemas are synthetic-tested only; the authorized account advertises heating.
-- Selected tenancy/default billing period only. No explicit property/period selection or previous-year reconciliation.
+- Selected tenancy/default billing period plus the previous period shown on the same chart. No explicit property/period selection; periods older than the previous one are not imported.
 - Missing months halt contiguous history imports. Source disappearance retains existing imported statistics pending review.
 - Monthly data are not measured daily/hourly profiles. Forecast attribution is present on entity attributes; historical daily statistics contain reconciled allocations, not per-point provenance labels.
 - No weather adjustment, costs, dashboard management or automatic Energy preference changes.
